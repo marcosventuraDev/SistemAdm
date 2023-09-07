@@ -1,0 +1,16 @@
+{
+    "name": "joaom/sistem-adm",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marcos ventura",
+            "email": "marcosventura.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
