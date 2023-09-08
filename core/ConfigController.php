@@ -47,9 +47,6 @@ class ConfigController extends  Config
             $this->urlParameter = "";
         }
 
-        echo "<br />Controller:{$this->urlController}<br />";
-        echo "Metodo:{$this->urlMetodo}<br />";
-        echo "Parametro:{$this->urlParameter}<br />";
     }
 
     private function clearUrl(): void
@@ -77,7 +74,7 @@ class ConfigController extends  Config
         $this->urlSlugController = ucwords($this->urlSlugController);
         $this->urlSlugController = str_replace(" ","", $this->urlSlugController);
          
-        var_dump($this->urlSlugController);
+      
         return $this->urlSlugController;
 
     }
