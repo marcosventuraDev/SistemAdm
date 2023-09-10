@@ -91,10 +91,13 @@ class ConfigController extends  Config
     public function loadPage():void
     {
 
-        $this->urlController = ucwords($this->urlController);
+      /*   $this->urlController = ucwords($this->urlController);
         $this->classLoad = "\\App\\adms\\Controllers\\".$this->urlController;
         $this->classPage = new $this->classLoad();
-        $this->classPage->{$this->urlMetodo}();
+        $this->classPage->{$this->urlMetodo}(); */
+
+        $loadPgAdm = new \Core\CarregarPgAdm();
+        $loadPgAdm->loadPage($this->urlController, $this->urlMetodo, $this->urlParameter);
 
     }
 }

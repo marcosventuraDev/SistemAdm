@@ -18,14 +18,10 @@ class Login
                 $this->data['form'] = $this->dataForm;
             }
             
-        }else{
-            
-            $this->data['form'] = $this->dataForm;
         }
-
 
         $loadView = new \Core\ConfigView("adms/Views/login/login", $this->data);
         $loadView->loadView();
     
-    }
-}
+    }//end index
+}//end class
