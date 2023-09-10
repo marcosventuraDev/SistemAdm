@@ -12,6 +12,14 @@ abstract class Config
         define('METODO', 'index');
         define('CONTROLLERERRO', 'Login');
 
+        define('HOST', 'localhost');
+        define('USER', 'root');
+        define('PASS', '');
+        define('DBNAME', 'sitephp_mvc');
+        define('PORT', '3306');
+        
+
+
         define('ADM', 'marcosventura.dev@gmail.com');
         
 

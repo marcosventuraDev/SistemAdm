@@ -4,7 +4,7 @@ namespace core;
 class ConfigView
 {
    
-    public function __construct(private string $nameView, private array|null $data)
+    public function __construct(private string $nameView, private array|null|string $data)
     {
 
     }

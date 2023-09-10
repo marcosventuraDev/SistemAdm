@@ -1,28 +1,46 @@
 <?php
+
 if (isset($this->data['form'])) {
-
- 
     $valorForm = $this->data['form'];
-
 }
-?>
-<h1>Área Restrita</h1>
 
-<form action="" method="post">
-
-    <?php
+if(isset($valorForm['user'])||isset($valorForm['password'])){
+    $user = $valorForm['user'];
+    $pass = $valorForm['password'];
+    
+}else{
     $user = "";
-    if (isset($valorForm['user'])) {
-        $user = $valorForm['user'];
+    $pass ="" ;
+}
+
+
+//Criptografar
+
+/* $cripto = password_hash('123456', PASSWORD_DEFAULT); */
+
+?>
+<h1>Área de Login</h1>
+
+<?php
+
+    if(isset($_SESSION['msg'])){
+    
+       echo $_SESSION['msg'];
+       unset($_SESSION['msg']);
+    }
+
+?>
+<span id="msg"></span>
+<div style=" display: flex;flex-direction:column;position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);width: 25%;height: 20%;">
+    <form action="" method="POST" id="form-login" style="display: flex; flex-direction:column;justify-content:space-around;   border:1px solid; border-radius:5px; padding:20px;" >
+        <label for="">Usuário:</label>
+        <input type="email" name="user" id="user" placeholder="Email do usuário" value="<?php echo $user?>"><br>
+        <label for=""> Senha:</label>
+        <input type="text" name="password" id="password" placeholder="Senha" value=""><br>
+    
       
-    } else {
-    } ?>
-    <label for="">Usuário: </label>
-    <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user?>"><br><br>
-
-  
-    <label for="">Password: </label>
-    <input type="password" name="password" id="password" placeholder="Digite a Senha" ><br><br>
-
-    <input type="submit" name="SendLogin" value="Acessar">
-</form>
+        <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
+    </form>
+    
+    <p><a href="<?php echo  URLADM;?>new-user/index">Cadastrar</a></p>
+</div>
