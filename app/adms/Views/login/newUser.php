@@ -32,7 +32,7 @@ if(isset($valorForm['name'])||isset($valorForm['email'])){
 ?>
 <span id="msg"></span>
 <div style=" display: flex;flex-direction:column;position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);width: 25%;height: 20%;">
-    <form action="" method="POST" id="form-login" style="display: flex; flex-direction:column;justify-content:space-around;   border:1px solid; border-radius:5px; padding:20px;" >
+    <form action="" method="POST" id="form-new-user" style="display: flex; flex-direction:column;justify-content:space-around;   border:1px solid; border-radius:5px; padding:20px;" >
         <label for="">Nome:</label>
         <input type="text" name="name" id="name" placeholder="Digite o nome Completo" value="<?php echo $name?>"><br>
         <label for="">E-mail:</label>
