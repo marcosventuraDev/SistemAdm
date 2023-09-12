@@ -2,14 +2,10 @@
 
 namespace App\adms\Models;
 
-use App\adms\Models\helper\AdmsConn;
-use PDO;
-
-class AdmsNewUser extends AdmsConn
+class AdmsNewUser 
 {
     private array|null $data;
-    private object $conn;
-    private $resultDb;
+
     private $result;
 
     function getResult()
