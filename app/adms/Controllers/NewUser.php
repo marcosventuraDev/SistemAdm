@@ -11,7 +11,7 @@ class NewUser
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm["SendNewUser"])) {
-
+            unset($this->dataForm['SendNewUser']);
             $createNewLogin = new \App\adms\Models\AdmsNewUser();
             $createNewLogin->create($this->dataForm);
             if ($createNewLogin->getResult()) {
