@@ -31,11 +31,14 @@ class AdmsNewUser
     {
         $valEmail = new \App\adms\Models\helper\AdmsValEmail();
         $valEmail->validateEmail($this->data['email']);
+
         $valEmailSingle = new \App\adms\Models\helper\AdmsValEmailSingle();
         $valEmailSingle->validateEmailSingle($this->data['email']);
 
+        $valPassword = new \App\adms\Models\helper\AdmsValPassword();
+        $valPassword->validatePassword($this->data['password']);
 
-         if(($valEmail->getResult())and ($valEmailSingle->getResult())){
+         if(($valEmail->getResult())and ($valEmailSingle->getResult()) and ($valPassword->getResult())){
             $this->add();
          }else{
             $this->result = false;
