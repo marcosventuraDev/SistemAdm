@@ -27,9 +27,7 @@ class AdmsLogin
         }else{
             $_SESSION['msg']="<p style='color:red'><b>Erro:</b> Usuário ou senha não encontrado</p>";
             $this->result = false;
-
         }
-  
     }
     
     private function valPassword()
@@ -45,6 +43,5 @@ class AdmsLogin
             $_SESSION['msg']="<p style='color:red'><b>Erro:</b> Usuário ou senha não encontrado</p>";
             $this->result = false;
         }
-    
     } 
 }

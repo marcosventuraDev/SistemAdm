@@ -21,7 +21,30 @@ class AdmsNewUser
 
         if ($valEmptField->getResult()) {
 
-            $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
+            $this->valImput();
+        } else {
+            $this->result = false;
+        }
+    }
+
+    private function valImput():void
+    {
+        $valEmail = new \App\adms\Models\helper\AdmsValEmail();
+        $valEmail->validateEmail($this->data['email']);
+        $valEmailSingle = new \App\adms\Models\helper\AdmsValEmailSingle();
+        $valEmailSingle->validateEmailSingle($this->data['email']);
+
+
+         if(($valEmail->getResult())and ($valEmailSingle->getResult())){
+            $this->add();
+         }else{
+            $this->result = false;
+         }
+    }
+
+    private function add(): void
+    {
+        $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
             $this->data['user'] = $this->data['email'];
             $this->data['created'] = date("Y-m-d H:i:s");
 
@@ -39,9 +62,6 @@ class AdmsNewUser
             }
            
             $this->result = false;
-        } else {
-            $this->result = false;
-        }
     }
 
 }

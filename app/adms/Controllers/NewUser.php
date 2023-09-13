@@ -16,7 +16,7 @@ class NewUser
             $createNewLogin->create($this->dataForm);
             if ($createNewLogin->getResult()) {
                 $urlRedirect =  URLADM;
-                header("Location: $urlRedirect");
+              header("Location: $urlRedirect");
             } else {
                 $this->data['form'] = $this->dataForm;
                 $this->viewNewUser();

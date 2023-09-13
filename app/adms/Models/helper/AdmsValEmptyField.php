@@ -3,8 +3,8 @@
 namespace App\adms\Models\helper;
 
 use App\adms\Models\helper\AdmsConn;
-use PDO;
-class AdmsValEmptyField extends AdmsConn
+
+class AdmsValEmptyField
 {
     private array|null $data;
     private bool $result;
