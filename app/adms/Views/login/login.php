@@ -19,6 +19,9 @@ if(isset($valorForm['user'])||isset($valorForm['password'])){
 /* $cripto = password_hash('123456', PASSWORD_DEFAULT); */
 
 ?>
+
+<span id="msg"></span>
+<div style=" display: flex;flex-direction:column;position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);width: 25%;height: 20%;">
 <h1>Área de Login</h1>
 
 <?php
@@ -30,13 +33,11 @@ if(isset($valorForm['user'])||isset($valorForm['password'])){
     }
 
 ?>
-<span id="msg"></span>
-<div style=" display: flex;flex-direction:column;position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);width: 25%;height: 20%;">
     <form action="" method="POST" id="form-login" style="display: flex; flex-direction:column;justify-content:space-around;   border:1px solid; border-radius:5px; padding:20px;" >
         <label for="">Usuário:</label>
-        <input type="email" name="user" id="user" placeholder="Email do usuário" value="<?php echo $user?>" required><br>
+        <input type="text" name="user" id="user" placeholder="Email do usuário" value="<?php echo $user?>" ><br>
         <label for=""> Senha:</label>
-        <input type="password" name="password" id="password" placeholder="Senha" value="" required><br>
+        <input type="password" name="password" id="password" placeholder="Senha" value="" ><br>
     
       
         <button type="submit" name="SendLogin" value="Acessar">Acessar</button>

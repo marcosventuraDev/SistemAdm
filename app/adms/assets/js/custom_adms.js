@@ -54,12 +54,13 @@ if (formNewUser) {
 }
 
 //Validação do login
-const formLorgin = document.getElementById("form-login");
-if (formLorgin) {
+const formLogin = document.getElementById("form-login");
+if (formLogin) {
+  
 
-    formLorgin.addEventListener("submit", async (e) => {
+    formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
-
+ 
         var user = document.querySelector('#user').value;
         var password = document.querySelector('#password').value;
         if (user === "") {
