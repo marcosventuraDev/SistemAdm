@@ -60,14 +60,23 @@ class AdmsNewUser
             $createUser->exeCreate("adms_users", $this->data);
             
             if($createUser->getResult()){
-                $_SESSION['msg']="<p style='color: green;'>Usuário cadastrado com sucesso</p>";
-                $this->result = true;
+                $this->sendEmail();
+              /*   $_SESSION['msg']="<p style='color: green;'>Usuário cadastrado com sucesso</p>";
+                $this->result = true; */
             }else{
                 $_SESSION['msg']="<p style='color: red;'>Usuário não cadastrado com sucesso</p>";
                 $this->result = false;
             }
            
             $this->result = false;
+    }
+
+    private function sendEmail():void
+    {
+        $sendEmail = new \App\adms\Models\helper\AdmsSendEmail();
+        $sendEmail->sendEmail();
+        $_SESSION['msg']="<p style='color: green;'>Usuário cadastrado com sucesso</p>";
+        $this->result = false;
     }
 
 }

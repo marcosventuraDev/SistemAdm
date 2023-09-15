@@ -12,5 +12,7 @@
             "email": "marcosventura.dev@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
 }
