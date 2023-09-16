@@ -5,17 +5,28 @@ namespace App\adms\Models\helper;
 
 class AdmsValEmailSingle
 {
+    
     private string $email;
-    private bool|null $edit;
-    private int|null $id;
-    private bool $result;
-    private $resultDb;
 
-    public function getResult(): bool
+    
+    private bool|null $edit;
+
+  
+    private int|null $id;
+
+    
+    private array|null $resultBd;
+
+  
+    private bool $result;
+
+   
+    function getResult(): bool
     {
         return $this->result;
     }
 
+   
     public function validateEmailSingle(string $email, bool|null $edit = null, int|null $id = null): void
     {
         $this->email = $email;
@@ -29,17 +40,12 @@ class AdmsValEmailSingle
             $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE email =:email LIMIT :limit", "email={$this->email}&limit=1");
         }
 
-        $this->resultDb = $valEmailSingle->getResult();
-        if(!$this->resultDb){
+        $this->resultBd = $valEmailSingle->getResult();
+        if(!$this->resultBd){
             $this->result = true;
         }else{
-            $_SESSION['msg']= "<p style= 'color:red'>Erro: Este e-mail já está cadastrado!";
-            $this->result= false;
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Este e-mail já está cadastrado!</p>";
+            $this->result = false;
         }
-
-     
     }
-    
-    
-  
 }

@@ -32,7 +32,7 @@ class ConfigView
             include 'app/' .$this->nameView . '.php';
             include 'app/adms/Views/include/footer.php';
         }else{
-            die("Erro - 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . ADM);
+            die("Erro - 002: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
 }

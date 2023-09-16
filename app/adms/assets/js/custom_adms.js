@@ -1,78 +1,74 @@
-
-//validação de cadastro de usuário
 const formNewUser = document.getElementById("form-new-user");
-
 if (formNewUser) {
-
-    //quando for submetido à um evento o formulario de id form-new-user
-    formNewUser.addEventListener("submit", async (e) => {
-
-        //recebe os valores das variáveis no campos correspondente ao ID
-        var name = document.querySelector('#name').value;
-        var email = document.querySelector('#email').value;
-        var password = document.querySelector('#password').value;
-
-        //verifica se o campo name está vazio
+    formNewUser.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
         if (name === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: Necessário Preencher o campo nome!</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
         }
-        //verifica se o campo email está vazio
+
+        //Receber o valor do campo
+        var email = document.querySelector("#email").value;
+        // Verificar se o campo esta vazio
         if (email === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: Necessário Preencher o campo E-mail!</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo e-mail!</p>";
+            return;
         }
-        //verifica se o campo password está vazio
+
+        //Receber o valor do campo
+        var password = document.querySelector("#password").value;
+        // Verificar se o campo esta vazio
         if (password === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: Necessário Preencher o campo Password!</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            return;
         }
-        //a senha deve conter 6 ou mais caractéres
+        // Verificar se o campo senha possui 6 caracteres
         if (password.length < 6) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: A senha deve ter no mínimo 6 caracteres</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
+            return;
         }
-        // a senha não pode ter números repetidos
-        if (password.match(/([(1-9)]+)\1{2,}/)) {
+        // Verificar se o campo senha não possui números repetidos
+        if (password.match(/([1-9]+)\1{1,}/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: A senha possui muitos números sequenciais repetidos</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha não deve ter número repetido!</p>";
+            return;
         }
-
-        //verifica se o campo senha não possui letras
-        if (!password.match(/[(A-Za-z)]/)) {
+        // Verificar se o campo senha possui letras
+        if (!password.match(/[A-Za-z]/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: A senha deve ter pelo menos 1 letra</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha deve ter pelo menos uma letra!</p>";
+            return;
         }
-
     });
 }
 
-//Validação do login
 const formLogin = document.getElementById("form-login");
 if (formLogin) {
-  
+    formLogin.addEventListener("submit", async(e) => {
 
-    formLogin.addEventListener("submit", async (e) => {
-        e.preventDefault();
- 
-        var user = document.querySelector('#user').value;
-        var password = document.querySelector('#password').value;
+        //Receber o valor do campo
+        var user = document.querySelector("#user").value;
+        // Verificar se o campo esta vazio
         if (user === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: Necessário Preencher o campo E-mail!</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo usuário!</p>";
+            return;
         }
+
+        //Receber o valor do campo
+        var password = document.querySelector("#password").value;
+        // Verificar se o campo esta vazio
         if (password === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color:red'>Erro: Necessário Preencher o campo password!</p>"
-            return
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            return;
         }
+
     });
 }
-

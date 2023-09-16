@@ -6,40 +6,40 @@ namespace App\adms\Models\helper;
 class AdmsValUserSingleLogin
 {
     private string $user;
-    private bool|null $edit;
-    private int|null $id;
-    private bool $result;
-    private $resultDb;
 
-    public function getResult(): bool
+    private bool|null $edit;
+
+    private int|null $id;
+
+    private array|null $resultBd;
+
+    private bool $result;
+
+    function getResult(): bool
     {
         return $this->result;
     }
-
+    
+   
     public function validateUserSingleLogin(string $user, bool|null $edit = null, int|null $id = null): void
     {
         $this->user = $user;
         $this->edit = $edit;
         $this->id = $id;
 
-        $valEmailSingle = new \App\adms\Models\helper\AdmsRead();
+        $valUserSingle = new \App\adms\Models\helper\AdmsRead();
         if(($this->edit == true) and (!empty($this->id))){
-            $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE email =:email id <>:id LIMIT :limit", "email={$this->user}&id={$this->id}&limit=1");
+            $valUserSingle->fullRead("SELECT id FROM adms_users WHERE user =:user id <>:id LIMIT :limit", "user={$this->email}&id={$this->id}&limit=1");
         }else{
-            $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE user =:user LIMIT :limit", "user={$this->user}&limit=1");
+            $valUserSingle->fullRead("SELECT id FROM adms_users WHERE user =:user LIMIT :limit", "user={$this->user}&limit=1");
         }
 
-        $this->resultDb = $valEmailSingle->getResult();
-        if(!$this->resultDb){
+        $this->resultBd = $valUserSingle->getResult();
+        if(!$this->resultBd){
             $this->result = true;
         }else{
-            $_SESSION['msg']= "<p style= 'color:red'>Erro: Este usupario já está cadastrado!";
-            $this->result= false;
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Este e-mail já está cadastrado!</p>";
+            $this->result = false;
         }
-
-     
     }
-    
-    
-  
 }

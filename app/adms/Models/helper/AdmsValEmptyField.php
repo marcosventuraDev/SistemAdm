@@ -2,32 +2,32 @@
 
 namespace App\adms\Models\helper;
 
-use App\adms\Models\helper\AdmsConn;
 
 class AdmsValEmptyField
 {
+    
     private array|null $data;
+
+    
     private bool $result;
 
-    function getResult(){
+    
+    function getResult(): bool
+    {
         return $this->result;
     }
 
-    public function valField(array $data = null)
+    public function valField(array $data = null): void
     {
-       $this->data = $data;
-       $this->data= array_map('strip_tags', $this->data);
-       $this->data = array_map('trim', $this->data);
+        $this->data = $data;
+        $this->data = array_map('strip_tags', $this->data);
+        $this->data = array_map('trim', $this->data);
 
-
-       if(in_array('', $this->data)){
-        $_SESSION['msg'] = "<p style='color:red'>Erro: Precisa preencher todos os campos</p>";
-        $this->result = false;
-       }else{
-        $this->result = true;
-       }
-    
+        if(in_array('', $this->data)){
+            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Necessário preencher todos os campos!</p>";
+            $this->result = false;
+        }else{
+            $this->result = true;
+        }
     }
-    
-  
 }

@@ -2,7 +2,11 @@
 session_start();
 ob_start();
 
+//Carregar o Composer
+require './vendor/autoload.php';
 
-    require './vendor/autoload.php';
-    $home = new Core\ConfigController();
-    $home->loadPage();
+//Instanciar a classe ConfigController, responsável em tratar a URL
+$home = new Core\ConfigController();
+
+//Instanciar o método para carregar a página/controller
+$home->loadPage();

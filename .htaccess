@@ -1,15 +1,7 @@
-# Documentação: https://httpd.apache.org/docs/2.4/rewrite/flags.html
 
-# Ativa o módulo Rewrite, que faz a reescrita de URL.
-RewriteEngine on
-
-# se o arquivo requisitado não existir
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
-
-
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
-
-
 
