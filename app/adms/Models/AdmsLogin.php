@@ -55,13 +55,6 @@ class AdmsLogin
     }
 
 
-    /** 
-     * Compara a senha enviado pelo usuário com a senha que está salva no banco de dados
-     * Retorna TRUE quando os dados estão corretos e salva as informações do usuário na sessão
-     * Retorna FALSE quando a senha está incorreta
-     * 
-     * @return void
-     */
     private function valPassword(): void
     {
         if (password_verify($this->data['password'], $this->resultBd[0]['password'])) {
