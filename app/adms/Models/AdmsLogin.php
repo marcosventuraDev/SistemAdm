@@ -40,7 +40,7 @@ class AdmsLogin
         if ($this->resultBd[0]['adms_sits_user_id'] == 1) {
             $this->valPassword();
         } elseif ($this->resultBd[0]['adms_sits_user_id'] == 3) {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'>Clique aqui</a>!</p>";
             $this->result = false;
         } elseif ($this->resultBd[0]['adms_sits_user_id'] == 5) {
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: E-mail descadastrado, entre em contato com a empresa!</p>";
